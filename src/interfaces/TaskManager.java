@@ -6,44 +6,44 @@ import task.Task;
 
 import java.util.List;
 
-public interface TaskManager {
-    public List<Subtask> getAllSubtasks ();
+ public interface TaskManager {
+     List<Subtask> getAllSubtasks ();
 
-    public List<Task> getAllTasks();
+     List<Task> getAllTasks();
 
-    public List<Epic> getAllEpics();
+     List<Epic> getAllEpics();
 
-    public void addNewTask(Task newTask);
+     void addNewTask(Task newTask);
 
-    public void addNewSubtask(Subtask newSubtask, Epic epic);
+     void addNewSubtask(Subtask newSubtask, Epic epic);
 
-    public void addNewEpic(Epic newEpic);
+     void addNewEpic(Epic newEpic);
 
-    public Task updateTask(String newTaskName, String newTaskDescription, Task task);
+     Task updateTask(String newTaskName, String newTaskDescription, Task task);
 
-    public Epic updateEpic(String newTaskName, String newTaskDescription, Epic epic);
+     Epic updateEpic(String newTaskName, String newTaskDescription, Epic epic);
 
-    public Task updateSubtask(String newTaskName, String newTaskDescription, Subtask subtask);
+     Task updateSubtask(String newTaskName, String newTaskDescription, Subtask subtask);
 
-    public Task getTaskByID(int id);
+     Task getTaskByID(int id);
 
-    public Subtask getSubtaskByID(int id);
+     Subtask getSubtaskByID(int id);
 
-    public Epic getEpicByID(int id);
+     Epic getEpicByID(int id);
 
-    public Subtask deleteSubtaskByID(int id);
+     Subtask deleteSubtaskByID(int id);
 
-    public void deleteEpicByID(int id);
+     void deleteEpicByID(int id);
 
-    public void deleteTaskByID(int id);
+     void deleteTaskByID(int id);
 
-    public List<Subtask> getSubtaskByEpic (Epic epic);
+     List<Subtask> getSubtaskByEpic (Epic epic);
 
-    public void clearAllSubtasks();
+     void clearAllSubtasks();
 
-    public void clearAllTasks();
+     void clearAllTasks();
 
-    public void clearAllEpics();
+     void clearAllEpics();
 
-    public List<Task> getHistory();
+     List<Task> getHistory();
 }

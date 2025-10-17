@@ -34,7 +34,7 @@ public class Task {
         this.taskStatus = taskStatus;
     }
 
-    public int getTaskID() {
+    public Integer getTaskID() {
         return taskID;
     }
 
