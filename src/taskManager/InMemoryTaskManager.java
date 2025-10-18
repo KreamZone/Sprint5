@@ -14,6 +14,48 @@ public class InMemoryTaskManager implements TaskManager {
     public  InMemoryHistoryManager historyManager = new InMemoryHistoryManager();
 
     @Override
+    public boolean setTaskId(Task taskToUpdate, int newId) {
+        if (isIdExists(newId)) {
+            return false;
+        }
+
+        Integer oldId = taskToUpdate.getTaskID();
+
+        taskToUpdate.setTaskID(newId);
+
+        if (taskToUpdate instanceof Subtask && subtask.containsKey(oldId)) {
+            Subtask subtaskObj = subtask.remove(oldId);
+            subtask.put(newId, subtaskObj);
+        } else if (taskToUpdate instanceof Epic && epic.containsKey(oldId)) {
+            Epic epicObj = epic.remove(oldId);
+            epic.put(newId, epicObj);
+        } else if (task.containsKey(oldId)) {
+            Task taskObj = task.remove(oldId);
+            task.put(newId, taskObj);
+        }
+
+        if (newId >= this.ID) {
+            this.ID = newId + 1;
+        }
+
+        return true;
+    }
+
+    private boolean isIdExists(int id) {
+        return task.containsKey(id) || subtask.containsKey(id) || epic.containsKey(id);
+    }
+
+    public int getCurrentId() {
+        return this.ID;
+    }
+
+    public void setCurrentId(int newId) {
+        if (newId > this.ID) {
+            this.ID = newId;
+        }
+    }
+
+    @Override
     public List<Task> getHistory(){
         return historyManager.getHistory();
     }

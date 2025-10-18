@@ -46,4 +46,6 @@ import java.util.List;
      void clearAllEpics();
 
      List<Task> getHistory();
+
+     boolean setTaskId(Task task, int newId);
 }

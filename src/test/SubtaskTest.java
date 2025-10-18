@@ -4,22 +4,26 @@ import org.junit.jupiter.api.Test;
 import task.Epic;
 import task.Subtask;
 import task.Task;
+import taskManager.InMemoryTaskManager;
 import taskStatus.TaskStatus;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SubtaskTest {
 
     @Test
-    public void EpicEuqalById(){
-        Epic masterTask = new Epic("masterTask","masterTaskDesc",TaskStatus.NEW);
-        Subtask subtask1 = new Subtask("subtask1","desc1", TaskStatus.NEW,masterTask);
-        Subtask subtask2 = new Subtask("subtask2","desc2", TaskStatus.NEW,masterTask);
+    public void CantSubtaskWithSameID(){
+        Epic epic = new Epic("epic1","epicDescr1",TaskStatus.NEW);
+        Subtask subtask1 = new Subtask("subtask1","subtaskDescr1",TaskStatus.NEW,epic);
+        Subtask subtask2 = new Subtask("subtask2","subtaskDescr2",TaskStatus.NEW,epic);
 
-        subtask1.setTaskID(2);
-        subtask2.setTaskID(2);
+        InMemoryTaskManager taskManagerTest = new InMemoryTaskManager();
+        taskManagerTest.addNewSubtask(subtask1,epic);
+        taskManagerTest.addNewSubtask(subtask2,epic);
 
-        assertTrue(subtask1.getTaskID() == subtask2.getTaskID()," must be true if ID is Equal ");
+        assertFalse(taskManagerTest.setTaskId(subtask1,subtask2.getTaskID()));
+        assertFalse(taskManagerTest.setTaskId(subtask2,subtask1.getTaskID()));
     }
 
 }
