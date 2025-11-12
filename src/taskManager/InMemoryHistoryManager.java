@@ -28,10 +28,6 @@ public class InMemoryHistoryManager implements HistoryManager {
 
     @Override
     public void add(Task task){
-        if (task == null){
-            return;
-        }
-        //remove(task.getTaskID());
         Node node = new Node(task);
         linkLast(node);
         history.put(task.getTaskID(),node);
