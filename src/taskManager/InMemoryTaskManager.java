@@ -9,7 +9,7 @@ import taskStatus.TaskStatus;
 public class InMemoryTaskManager implements TaskManager {
     private Integer ID = 0;
     public Map<Integer, Subtask> subtask = new HashMap<>();
-    public Map<Integer, Task> task = new HashMap<>();
+    public static Map<Integer, Task> task = new HashMap<>();
     public Map<Integer , Epic> epic = new HashMap<>();
     public  InMemoryHistoryManager historyManager = new InMemoryHistoryManager();
 
@@ -118,7 +118,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public Task updateSubtask(String newTaskName, String newTaskDescription, Subtask subtask){
+    public Subtask updateSubtask(String newTaskName, String newTaskDescription, Subtask subtask){
         subtask.setTaskName(newTaskName);
         subtask.setTaskDescription(newTaskDescription);
         subtask.setTaskStatus(TaskStatus.IN_PROCESS);
