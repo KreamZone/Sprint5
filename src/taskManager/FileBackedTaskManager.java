@@ -93,22 +93,22 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
     }
 
     @Override
-    public Task updateTask(String newTaskName, String newTaskDescription, Task task) {
-        Task taskTMP = super.updateTask(newTaskName, newTaskDescription, task);
+    public Task updateTask(String newTaskName, String newTaskDescription, Task task , TaskStatus taskStatus) {
+        Task taskTMP = super.updateTask(newTaskName, newTaskDescription, task, taskStatus);
         save();
         return taskTMP;
     }
 
     @Override
-    public Epic updateEpic(String newTaskName, String newTaskDescription, Epic epic) {
-        Epic epicTMP = super.updateEpic(newTaskName, newTaskDescription, epic);
+    public Epic updateEpic(String newTaskName, String newTaskDescription, Epic epic, TaskStatus taskStatus) {
+        Epic epicTMP = super.updateEpic(newTaskName, newTaskDescription, epic, taskStatus);
         save();
         return epicTMP;
     }
 
     @Override
-    public Subtask updateSubtask(String newTaskName, String newTaskDescription, Subtask subtask) {
-        Subtask subtaskTMP = super.updateSubtask(newTaskName, newTaskDescription, subtask);
+    public Subtask updateSubtask(String newTaskName, String newTaskDescription, Subtask subtask, TaskStatus taskStatus) {
+        Subtask subtaskTMP = super.updateSubtask(newTaskName, newTaskDescription, subtask, taskStatus);
         save();
         return subtaskTMP;
     }

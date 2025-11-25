@@ -2,20 +2,42 @@ package task;
 
 import taskStatus.TaskStatus;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+
 public class Task {
     protected String taskName;
     protected String taskDescription;
     protected TaskStatus taskStatus;
     protected Integer taskID;
+    protected Duration duration;
+    protected LocalDateTime startTime;
 
     public Task(String taskName, String taskDescription, TaskStatus taskStatus) {
         this.taskDescription = taskDescription;
         this.taskName = taskName;
         this.taskStatus = taskStatus;
+        this.startTime = LocalDateTime.now();
     }
 
     protected void updateStatus(TaskStatus taskStatus) {
         this.taskStatus = taskStatus;
+    }
+
+    public void setDuration(Duration duration) {
+        this.duration = duration;
+    }
+
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public Duration getDuration() {
+        return duration;
     }
 
     public String getTaskName() {

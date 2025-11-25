@@ -29,23 +29,24 @@ class InMemoryHistoryManagerTest {
         updatedTask1.setTaskStatus(TaskStatus.IN_PROCESS);
         historyManager.add(updatedTask1);
 
-        assertEquals("descr1",historyManager.getHistory().getFirst().getTaskDescription());
-        assertEquals("task1",historyManager.getHistory().getFirst().getTaskName());
-        assertEquals(TaskStatus.NEW,historyManager.getHistory().getFirst().getTaskStatus());
+        assertEquals("descr2",historyManager.getHistory().getFirst().getTaskDescription());
+        assertEquals("task1.2",historyManager.getHistory().getFirst().getTaskName());
+        assertEquals(TaskStatus.IN_PROCESS,historyManager.getHistory().getFirst().getTaskStatus());
     }
+    @Test
     public void TestHistoryManagerRemoveFromHistory() {
         HistoryManager historyManager = new InMemoryHistoryManager();
-        Task task1 = new Task("task1","descr1", TaskStatus.NEW);
+        Task task = new Task("task","descr", TaskStatus.NEW);
         Epic epic = new Epic("epic","descr",TaskStatus.NEW);
         Subtask subtask = new Subtask("subtask","descr",TaskStatus.NEW, epic);
 
-        historyManager.add(task1);
+        historyManager.add(task);
         historyManager.add(epic);
         historyManager.add(subtask);
 
         historyManager.remove(subtask.getTaskID());
         historyManager.remove(epic.getTaskID());
-        historyManager.remove(task1.getTaskID());
+        historyManager.remove(task.getTaskID());
         assertEquals(true, historyManager.getHistory().isEmpty());
 
     }

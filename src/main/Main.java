@@ -80,9 +80,6 @@ public class Main {
             System.out.println(task.getTaskStatus());
         }
 
-        taskManager.updateEpic("Новое назвние эпика 1","Новое описание эпика 1",epic1);
-        taskManager.updateSubtask("Новое назвние саабтаска 1","Новое описание сабтаска 1",subtask1);
-
         System.out.println("Все Epic.taskName: ");
         for (Epic epic : taskManager.getAllEpics()) {
             System.out.println(epic.getTaskName());
