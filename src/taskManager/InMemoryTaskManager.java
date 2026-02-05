@@ -87,9 +87,7 @@ public class InMemoryTaskManager implements TaskManager {
         newTask.setTaskID(ID);
         task.put(newTask.getTaskID(), newTask);
         if(newTask.getStartTime()!= null){
-            {
-                prioritizedTasks.add(newTask.getStartTime());
-            }
+            prioritizedTasks.add(newTask.getStartTime());
         }
         ID++;
     }

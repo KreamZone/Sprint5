@@ -70,5 +70,26 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../../Downloads/gson-main (1).zip!/gson-main/extras/src/main/java" />
+          <root url="jar://$MODULE_DIR$/../../Downloads/gson-main (1).zip!/gson-main/extras/src/test/java" />
+          <root url="jar://$MODULE_DIR$/../../Downloads/gson-main (1).zip!/gson-main/gson/src/main/java" />
+          <root url="jar://$MODULE_DIR$/../../Downloads/gson-main (1).zip!/gson-main/gson/src/main/java-templates" />
+          <root url="jar://$MODULE_DIR$/../../Downloads/gson-main (1).zip!/gson-main/gson/src/test/java" />
+          <root url="jar://$MODULE_DIR$/../../Downloads/gson-main (1).zip!/gson-main/metrics/src/main/java" />
+          <root url="jar://$MODULE_DIR$/../../Downloads/gson-main (1).zip!/gson-main/proto/src/main/java" />
+          <root url="jar://$MODULE_DIR$/../../Downloads/gson-main (1).zip!/gson-main/proto/src/test/java" />
+          <root url="jar://$MODULE_DIR$/../../Downloads/gson-main (1).zip!/gson-main/test-graal-native-image/src/test/java" />
+          <root url="jar://$MODULE_DIR$/../../Downloads/gson-main (1).zip!/gson-main/test-jpms/src/test/java" />
+          <root url="jar://$MODULE_DIR$/../../Downloads/gson-main (1).zip!/gson-main/test-shrinker/src/main/java" />
+          <root url="jar://$MODULE_DIR$/../../Downloads/gson-main (1).zip!/gson-main/test-shrinker/src/test/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="google.code.gson" level="project" />
   </component>
 </module>

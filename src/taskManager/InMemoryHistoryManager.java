@@ -23,7 +23,6 @@ public class InMemoryHistoryManager implements HistoryManager {
     private final Map<Integer, Node> history = new HashMap<>();
     private Node head;
     private Node tail;
-    private int size = 0;
 
 
     @Override
@@ -32,7 +31,6 @@ public class InMemoryHistoryManager implements HistoryManager {
         Node node = new Node(task);
         linkLast(node);
         history.put(task.getTaskID(), node);
-        size++;
     }
 
     @Override
@@ -41,7 +39,6 @@ public class InMemoryHistoryManager implements HistoryManager {
         if(node != null){
             removeNode(node);
             history.remove(id);
-            size--;
         }
 
     }
