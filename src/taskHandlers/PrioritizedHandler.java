@@ -6,6 +6,7 @@ import com.sun.net.httpserver.HttpHandler;
 import interfaces.TaskManager;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
@@ -32,9 +33,9 @@ public class PrioritizedHandler extends BaseHttpHandler implements HttpHandler {
 
     private void handleGET(String path ,HttpExchange exchange) throws IOException {
         try {
-            if (Pattern.matches("^/history$", path)) {
-                TreeSet taskHistory = taskManager.getPrioritizedTasks();
-                sendText(exchange, gson.toJson(taskHistory), 200);
+            if (Pattern.matches("^/prioritized$", path)) {
+                TreeSet<LocalDateTime> taskPrioritazed = taskManager.getPrioritizedTasks();
+                sendText(exchange, gson.toJson(taskPrioritazed), 200);
             } else {
                 sendNotFound(exchange);
             }
